@@ -1,0 +1,1 @@
+<img src="{{ asset("img/smart_tech.png") }}" width="400"/>
