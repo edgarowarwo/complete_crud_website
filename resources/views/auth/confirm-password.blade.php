@@ -1,35 +1,83 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!doctype html>
+<html lang="en">
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>Locked Screen | Admin | Control Panel </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A complete CRUD website to demonstrate basic Laravel skills" name="description" />
+        <meta content="Edgar Owarwo" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset("backend/assets/images/favicon.ico") }}">
+
+        <!-- Bootstrap Css -->
+        <link href="{{ asset("backend/assets/css/bootstrap.min.css") }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{ asset("backend/assets/css/icons.min.css") }}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{ asset("backend/assets/css/app.min.css") }}" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body class="auth-body-bg">
+        <div class="bg-overlay"></div>
+        <div class="wrapper-page">
+            <div class="container-fluid p-0">
+                <div class="card">
+                    <div class="card-body">
+    
+                        <div class="text-center mt-4">
+                            <div class="mb-3">
+                                <a href="" class="auth-logo">
+                                    <img src="{{ asset("backend/assets/images/smart_tech.png") }}" height="100" class="logo-dark mx-auto" alt="">
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="p-3">
+                            <form class="form-horizontal mt-3" method="POST" action="{{ route('password.confirm') }}">
+                                @csrf
+    
+                                <div class="text-center mb-4">
+                                    <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-lg img-thumbnail" alt="thumbnail">
+                                </div>
+    
+                                <div class="form-group mb-3 row">
+                                    <div class="col-12">
+                                        <input class="form-control" type="password" required="" placeholder="Password" id="password" name="password" required autocomplete="current-password">
+                                    </div>
+                                </div>
+    
+                                <div class="form-group text-center row mt-3">
+                                    <div class="col-12">
+                                        <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log In</button>
+                                    </div>
+                                </div>
+    
+                                <div class="form-group mt-4 mb-0 row">
+                                    <div class="col-12 text-center">
+                                        <a href="{{ route('login') }}" class="text-muted">Not you?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+    
+                    </div>
+                    <!-- end cardbody -->
+                </div>
+                <!-- end card -->
+            </div>
         </div>
 
-        <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
+        <!-- JAVASCRIPT -->
+        <script src="{{ asset("backend/assets/libs/jquery/jquery.min.js") }}"></script>
+        <script src="{{ asset("backend/assets/libs/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+        <script src="{{ asset("backend/assets/libs/metismenu/metisMenu.min.js") }}"></script>
+        <script src="{{ asset("backend/assets/libs/simplebar/simplebar.min.js") }}"></script>
+        <script src="{{ asset("backend/assets/libs/node-waves/waves.min.js") }}"></script>
 
-            <!-- Password -->
-            <div>
-                <x-input-label for="password" :value="__('Password')" />
+        <script src="{{ asset("backend/assets/js/app.js") }}"></script>
 
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <x-primary-button>
-                    {{ __('Confirm') }}
-                </x-primary-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+    </body>
+</html>
