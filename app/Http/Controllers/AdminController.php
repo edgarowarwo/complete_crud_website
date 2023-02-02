@@ -86,4 +86,18 @@ class AdminController extends Controller
         }
 
     }
+
+    public function Index(){
+        return view('frontend.index');
+    }// end mehtod 
+
+
+    public function About(){
+        return view('about');
+    } // end mehtod 
+
+
+    public function Contact(){
+        return view('contact');
+    }
 }
