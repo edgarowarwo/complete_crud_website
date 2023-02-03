@@ -12,7 +12,7 @@ use App\Mail;
 class ContactController extends Controller
 {
     public function Contact(){
-        return view('frontend.contact');
+        return view('frontend.contact.index');
     } // end mehtod 
 
 

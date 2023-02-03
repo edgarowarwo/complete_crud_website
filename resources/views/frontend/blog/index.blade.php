@@ -51,7 +51,7 @@ Blog | Smart Tech
                     <div class="standard__blog__content">
                         <div class="blog__post__avatar">
                             <div class="thumb"><img src="{{ asset($item->blog_image) }}" alt=""></div>
-                            <span class="post__by">By : 
+                            <span class="post__by">Category : 
                                 @foreach($categories as $cat)
                                 <a>{{
 
@@ -75,7 +75,8 @@ Blog | Smart Tech
                 @endforeach
                 
                 <div class="pagination-wrap">
-                    {{ $allblogs->links() }}
+                    
+                    {{ $allblogs->links('vendor.pagination.custom') }}
                 </div>
             </div>
             <div class="col-lg-4">
